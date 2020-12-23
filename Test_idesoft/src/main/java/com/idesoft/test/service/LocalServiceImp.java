@@ -1,6 +1,5 @@
 package com.idesoft.test.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,11 +38,10 @@ public class LocalServiceImp implements LocalService {
 
 	
 	@Override
-	@Transactional(readOnly = true)
 	public List<Local> findByComuna(String comuna) {
 		
 		try {
-			locales = localDao.findByComuna(comuna.toUpperCase());
+			locales = localDao.findByComuna(comuna);
 		} catch (Exception e) {
 			logger.error("LocalServicioImp findByComuna()" + e);
 		}
@@ -97,9 +95,9 @@ public class LocalServiceImp implements LocalService {
 
 	@Override
 	@Transactional
-	public void delete(Local local) {
+	public void delete(Integer id) {
 		try {
-		localDao.deleteById(local.getId());
+		localDao.deleteById(id);
 		} catch (Exception e) {
 			logger.error("LocalServicioImp delete()" + e);
 		}

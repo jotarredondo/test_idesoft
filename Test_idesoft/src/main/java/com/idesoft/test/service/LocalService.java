@@ -16,6 +16,6 @@ public interface LocalService {
 	
 	public void update (Local local);
 	
-	public void delete (Local local);
+	public void delete (Integer id);
 
 }
