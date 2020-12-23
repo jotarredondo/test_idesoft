@@ -38,10 +38,11 @@ public class LocalServiceImp implements LocalService {
 
 	
 	@Override
+	@Transactional(readOnly = true)
 	public List<Local> findByComuna(String comuna) {
-		
 		try {
 			locales = localDao.findByComuna(comuna);
+			
 		} catch (Exception e) {
 			logger.error("LocalServicioImp findByComuna()" + e);
 		}

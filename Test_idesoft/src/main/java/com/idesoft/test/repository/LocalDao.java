@@ -10,7 +10,7 @@ import com.idesoft.test.model.Local;
 @Repository
 public interface LocalDao extends JpaRepository<Local, Integer> {
 	
-	@Query(value = "SELECT local_id, local_nombre, local_direccion, local_telefono, local_lat, local_lng from local where comuna_nombre like %?1% ",nativeQuery = true )
+	@Query(value = "SELECT local_id, local_nombre, comuna_nombre, local_direccion, local_telefono, local_lat, local_lng from local where comuna_nombre like %?1%  ",nativeQuery = true )
 	List<Local> findByComuna(String comuna);
 
 }
